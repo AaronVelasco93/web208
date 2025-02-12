@@ -1,2 +1,0 @@
-informacion sobre Git
-datos
