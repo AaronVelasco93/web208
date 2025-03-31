@@ -1,5 +1,4 @@
 let  inventario = [];
-
 //Funcion para menu
 function mostrarMenu(){
     return parseInt( prompt (
@@ -12,7 +11,42 @@ function mostrarMenu(){
 
     ));
 }
+function agregarProducto(){
+    let nombre = prompt("Introduce el nombre del producto:");
+    let cantidad = parseInt(prompt("Introduce la cantidad del producto: "));
+    let precio = parseInt(prompt("Introduce el precio del producto"));
 
+    if(cantidad > 0 && precio >0){
+        let producto ={
+            nombre: nombre, 
+            cantidad: cantidad,
+            precio: precio
+        };
+        inventario.push(producto);
+        alert("Producto agregado");
+    }else {
+        alert("La cantidad y precio debe ser numeros positivos");
+    }
+}
+
+function mostrarProducto(){
+
+    if( inventario.length === 0 ){
+        alert("No hay productos");
+
+    }else{
+        let mensaje= "Productos en inventario \n";
+        for ( let i=0 ; i< inventario.length; i++){
+              mensaje += `Producto ${i+1}\n`+
+                         `Nombre: ${inventario[i].nombre}\n`+
+                         `Cantidad: ${inventario[i].cantidad}\n`+
+                         `Precio: ${inventario[i].precio}\n`+
+                         "--------------------------------\n"                     
+                         ;  
+        }
+        alert(mensaje);
+    }
+}
 
 
 function inicarPrograma(){
@@ -40,3 +74,5 @@ function inicarPrograma(){
     alert("Programa Finalizado");
 
 }
+
+inicarPrograma();
